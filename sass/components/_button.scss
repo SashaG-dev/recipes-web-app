@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as var;
+
+.btn {
+  color: var.$black;
+  font-size: 1.6rem;
+  background-color: var.$neutral;
+  border: var.$border;
+  border-radius: 100px;
+  padding: 0.4rem 1.6rem;
+  cursor: pointer;
+  transition: var.$transitions;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: var.$neutral;
+    background-color: var.$black;
+    transform: translateY(-3.2px);
+  }
+
+  &:active {
+    transform: translateY(-1.6px);
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/main.css" />
+    <!-- <script defer src="./scripts/control.js" type="module"></script> -->
+    <title>Food Web App</title>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <nav class="user-nav">
+          <div class="user-nav__bar">
+            <button class="user-nav__btn">
+              <span>&nbsp;</span>
+            </button>
+          </div>
+
+          <div class="user-nav__menu-content">
+            <div class="user-nav__menu-container"></div>
+          </div>
+        </nav>
+
+        <h1 class="heading-1">
+          <a href="#" class="logo" title="Return to Home">Home</a>
+        </h1>
+      </div>
+
+      <form class="search">
+        <label for="search" class="search__label">
+          <input
+            type="text"
+            id="search"
+            class="search__input"
+            placeholder="Search for a recipe"
+          />
+          <button class="btn search__btn" type="submit">Search</button>
+        </label>
+      </form>
+
+      <div class="actions">
+        <a href="#" class="btn btn__join" title="Join now">Join Now</a>
+        <a href="#" class="btn btn__sign-in" title="Sign in">Sign In</a>
+      </div>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as var;
+
+.user-nav {
+  &__btn {
+    background-color: transparent;
+    border: none;
+    height: 16px;
+    width: 3rem;
+    cursor: pointer;
+
+    span {
+      display: block;
+      height: 3px;
+      width: 3rem;
+      background-color: var.$black;
+      border-radius: 100px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background-color: var.$black;
+        border-radius: 100px;
+      }
+
+      &::before {
+        transform: translateY(-0.8rem);
+        width: 100%;
+      }
+
+      &::after {
+        transform: translateY(0.8rem);
+        width: 50%;
+      }
+    }
+  }
+}
