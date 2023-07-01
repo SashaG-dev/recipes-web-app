@@ -1,3 +1,4 @@
 Recipes Web App (API Information).txt
-
 dist/
+node_modules
+.parcel-cache

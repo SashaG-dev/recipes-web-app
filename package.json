@@ -1,0 +1,14 @@
+{
+  "name": "recipes-web-app",
+  "version": "1.0.0",
+  "description": "A web app for finding and saving new recipes",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Sasha",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
