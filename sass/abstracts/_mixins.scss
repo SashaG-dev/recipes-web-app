@@ -1,0 +1,70 @@
+@mixin centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin respond($breakpoint) {
+  //~1500px
+  @if $breakpoint == desktop {
+    @media (min-width: 97.1em) {
+      @content;
+    }
+  }
+
+  //~1800px
+  @if $breakpoint == desktop-lg {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+
+  //~1330px
+  @if $breakpoint == laptop-sm {
+    @media (max-width: 83.3em) {
+      @content;
+    }
+  }
+
+  //~1100px
+  @if $breakpoint == tab-land {
+    @media (max-width: 69.1em) {
+      @content;
+    }
+  }
+
+  //~1000px
+  @if $breakpoint == tab-port {
+    @media (max-width: 62.2em) {
+      @content;
+    }
+  }
+
+  //~820px
+  @if $breakpoint == tab-sm {
+    @media (max-width: 51.8em) {
+      @content;
+    }
+  }
+
+  //~770px
+  @if $breakpoint == tab-sm-port {
+    @media (max-width: 48em) {
+      @content;
+    }
+  }
+
+  //~680px
+  @if $breakpoint == phone-land {
+    @media (max-width: 42.5em) {
+      @content;
+    }
+  }
+
+  //~440px
+  @if $breakpoint == phone-port {
+    @media (max-width: 27.5em) {
+      @content;
+    }
+  }
+}
