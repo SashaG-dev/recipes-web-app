@@ -17,3 +17,15 @@ body {
     }
   }
 }
+
+.heading-3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.recipe-category,
+.recipe-cuisine {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  cursor: default;
+}
