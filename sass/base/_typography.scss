@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mixin;
 
 body {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
@@ -32,4 +33,8 @@ body {
   text-transform: uppercase;
   font-size: 1.6rem;
   cursor: default;
+
+  @include mixin.respond(tab-sm) {
+    font-size: 1.4rem;
+  }
 }

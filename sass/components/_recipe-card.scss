@@ -12,6 +12,10 @@
   overflow: hidden;
   transition: var.$transitions;
 
+  @include mixin.respond(tab-sm) {
+    height: 24rem;
+  }
+
   &:hover {
     transform: translateY(-0.8rem);
   }
@@ -19,13 +23,21 @@
   &__img-container {
     overflow: hidden;
     border-bottom: var.$border;
+
+    @include mixin.respond(tab-sm) {
+      @include mixin.centerFlex;
+    }
+  }
+
+  &__img {
+    @include mixin.respond(tab-sm) {
+      width: 20rem;
+    }
   }
 
   &__img {
     width: 24rem;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
     display: block;
     transition: var.$transitions;
 
@@ -69,5 +81,9 @@
     gap: 1.6rem;
     margin-top: -1.6rem;
     padding: 0.8rem;
+
+    @include mixin.respond(tab-sm) {
+      gap: 0.8rem;
+    }
   }
 }

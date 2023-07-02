@@ -47,7 +47,11 @@ class allRecipesView {
               </a>
             </div>
             <h3 class="heading-3 recipe-card__title">
-              <a href="#" data-id="${recipe.id}" class="recipe-card__link">${recipe.name}</a>
+              <a href="#" data-id="${recipe.id}" class="recipe-card__link">${
+      recipe.name.split(" ").length >= 6
+        ? `${recipe.name.split(" ").slice(0, 5).join(" ")}...`
+        : recipe.name
+    }</a>
             </h3>
             <div class="recipe-card__details">
               <p class="recipe-cuisine">${recipe.cuisine}</p>
