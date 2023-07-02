@@ -80,6 +80,18 @@ class allRecipesView {
     this._clearPage();
     this._pElement.insertAdjacentHTML("afterbegin", markup);
   }
+
+  renderLoading() {
+    const loading = `
+    <div class="loading">
+    <div class="loading__bubble loading__bubble--1"></div>
+    <div class="loading__bubble loading__bubble--2"></div>
+    <div class="loading__bubble loading__bubble--3"></div>
+  </div>
+    `;
+    this._clearPage();
+    this._pElement.insertAdjacentHTML("afterbegin", loading);
+  }
 }
 
 export default new allRecipesView();

@@ -8,6 +8,7 @@ const controlRecipe = async function () {
   try {
     const query = searchBarView.showQuery();
     if (!query) return;
+    allRecipesView.renderLoading();
     await model.fetchSearchResults(query);
     allRecipesView.renderInfo(model.state.search.allResults);
   } catch (err) {

@@ -1,0 +1,32 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mixin;
+@use "../abstracts/animations";
+
+.loading {
+  @include mixin.centerFlex;
+  gap: 1.6rem;
+  margin: 0 auto;
+  margin-top: 2.4rem;
+
+  &__bubble {
+    width: 2rem;
+    height: 2rem;
+    background-color: var.$primary;
+    border: var.$border;
+    border-radius: 50%;
+
+    &--1,
+    &--2,
+    &--3 {
+      animation: fadeLoad 1s infinite;
+    }
+
+    &--2 {
+      animation-delay: 0.2s;
+    }
+
+    &--3 {
+      animation-delay: 0.4s;
+    }
+  }
+}
