@@ -50,10 +50,8 @@ export const fetchSearchResults = async function (input) {
         cuisine: meal.strArea,
       };
     });
-
-    // for testing
-    console.log(state.search.allResults);
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };

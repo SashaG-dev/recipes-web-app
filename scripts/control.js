@@ -2,15 +2,16 @@
 
 import * as model from "./model.js";
 import searchBarView from "./views/searchBarView.js";
+import allRecipesView from "./views/allRecipesView.js";
 
 const controlRecipe = async function () {
   try {
     const query = searchBarView.showQuery();
     if (!query) return;
-
-    model.fetchSearchResults(query);
+    await model.fetchSearchResults(query);
+    allRecipesView.renderInfo(model.state.search.allResults);
   } catch (err) {
-    console.error(err);
+    allRecipesView.renderError(err);
   }
 };
 
