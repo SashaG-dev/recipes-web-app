@@ -26,6 +26,7 @@ class recipeDisplayView {
 
     this._pElement.querySelector(".recipe").classList.add("recipe--show");
     this._pElement.closest("body").classList.add("recipe-visible");
+    window.scrollTo(0, 0);
   }
 
   _createFinalMarkup() {
@@ -78,7 +79,7 @@ class recipeDisplayView {
       </div>
     </div>
 
-    <a href="#find" class="recipe__close"><i class="bi bi-x-lg"></i></a>
+    <a href="#back" class="recipe__close"><i class="bi bi-x-lg"></i></a>
   </article>
     `;
 
@@ -97,14 +98,12 @@ class recipeDisplayView {
 
   _createStepsMarkup() {
     const steps = this._data.instructions;
-    const test = steps
+    return steps
       .replaceAll("\r\n", "+")
       .replaceAll(/STEP [0-9]/gi, "+")
       .split("+")
       .map((step) => (step ? `<li class="recipe__step">${step}</li>` : ""))
       .join("");
-    console.log(test);
-    return test;
   }
 }
 
