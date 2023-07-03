@@ -33,16 +33,18 @@ class recipeDisplayView {
     const markup = `
     <article class="recipe">
     <div class="recipe__main-container">
-      <div class="recipe__img-container">
-        <img src="${this._data.image}" alt="${
+      <div class="recipe__sticky">
+        <div class="recipe__img-container">
+          <img src="${this._data.image}" alt="${
       this._data.name
     }" class="recipe__img" />
-      </div>
+        </div>
 
-      <div class="recipe__titles">
-        <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
-        <p class="recipe-cuisine">${this._data.cuisine}</p>
-        <p class="recipe-category">${this._data.category}</p>
+        <div class="recipe__titles">
+          <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
+          <p class="recipe-cuisine">${this._data.cuisine}</p>
+          <p class="recipe-category">${this._data.category}</p>
+        </div>
       </div>
     </div>
 
