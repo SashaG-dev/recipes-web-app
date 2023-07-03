@@ -21,11 +21,8 @@ const controlSingleRecipe = async function () {
   try {
     const id = recipeDisplayView.showId();
     if (!id) return;
-    console.log(id);
     await model.fetchRecipe(id);
-
-    // testing
-    console.log(model.state.recipe);
+    recipeDisplayView.renderInfo(model.state.recipe);
   } catch (err) {
     console.error(err);
   }
@@ -35,7 +32,7 @@ const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   searchBarView.showMobileSearch();
   searchBarView.hideMobileSearch();
-  recipeDisplayView.hashchangeEvent(controlSingleRecipe);
+  recipeDisplayView.changeEvent(controlSingleRecipe);
 };
 
 init();
