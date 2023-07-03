@@ -38,7 +38,7 @@ class allRecipesView {
     return `
     <div class="recipe-card">
             <div class="recipe-card__img-container">
-              <a href="#" class="recipe-card__img-link" data-id="id">
+              <a href="#${recipe.id}" class="recipe-card__link">
                 <img
                   src="${recipe.image}"
                   alt="${recipe.name}"
@@ -47,7 +47,7 @@ class allRecipesView {
               </a>
             </div>
             <h3 class="heading-3 recipe-card__title">
-              <a href="#" data-id="${recipe.id}" class="recipe-card__link">${
+              <a href="#${recipe.id}" class="recipe-card__link">${
       recipe.name.split(" ").length >= 6
         ? `${recipe.name.split(" ").slice(0, 5).join(" ")}...`
         : recipe.name

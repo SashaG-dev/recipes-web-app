@@ -9,15 +9,13 @@ export const state = {
 };
 
 // For click on a single meal
-export const fetchRecipe = async function (input) {
+export const fetchRecipe = async function (id) {
   try {
-    const data = await getJSON("search.php?s=", input);
-
-    if (!data.meals) throw new Error("No recipe found. Please try again!");
-
-    //for testing
-    console.log(data);
-
+    const data = await getJSON("lookup.php?i=", id);
+    if (!data.meals)
+      throw new Error(
+        "There was an error while getting this recipe. Please try again!"
+      );
     const recipe = data.meals[0];
     state.recipe = {
       id: recipe.idMeal,

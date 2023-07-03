@@ -3,8 +3,9 @@
 import * as model from "./model.js";
 import searchBarView from "./views/searchBarView.js";
 import allRecipesView from "./views/allRecipesView.js";
+import recipeDisplayView from "./views/recipeDisplayView.js";
 
-const controlRecipe = async function () {
+const controlAllRecipes = async function () {
   try {
     const query = searchBarView.showQuery();
     if (!query) return;
@@ -16,10 +17,25 @@ const controlRecipe = async function () {
   }
 };
 
+const controlSingleRecipe = async function () {
+  try {
+    const id = recipeDisplayView.showId();
+    if (!id) return;
+    console.log(id);
+    await model.fetchRecipe(id);
+
+    // testing
+    console.log(model.state.recipe);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const init = function () {
-  searchBarView.searchEvent(controlRecipe);
+  searchBarView.searchEvent(controlAllRecipes);
   searchBarView.showMobileSearch();
   searchBarView.hideMobileSearch();
+  recipeDisplayView.hashchangeEvent(controlSingleRecipe);
 };
 
 init();
