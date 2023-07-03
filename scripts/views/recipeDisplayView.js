@@ -97,10 +97,14 @@ class recipeDisplayView {
 
   _createStepsMarkup() {
     const steps = this._data.instructions;
-    return steps
-      .split("\r\n")
-      .map((step) => `<li class="recipe__step">${step}</li>`)
+    const test = steps
+      .replaceAll("\r\n", "+")
+      .replaceAll(/STEP [0-9]/gi, "+")
+      .split("+")
+      .map((step) => (step ? `<li class="recipe__step">${step}</li>` : ""))
       .join("");
+    console.log(test);
+    return test;
   }
 }
 
