@@ -77,7 +77,7 @@
     }
 
     @include mixin.respond(tab-port) {
-      width: 32rem;
+      width: 30rem;
     }
 
     @include mixin.respond(tab-sm-port) {
@@ -91,20 +91,14 @@
     display: block;
   }
 
-  &__titles {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 0.8rem;
-  }
-
-  &__name {
-    grid-column: 1 / -1;
-  }
-
   &__info-container {
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
+
+    @include mixin.respond(tab-port) {
+      padding-top: 1.6rem;
+    }
 
     @include mixin.respond(tab-sm-port) {
       margin-left: 2.4rem;
@@ -114,6 +108,16 @@
       gap: 2.4rem;
       padding-left: 0.8rem;
     }
+  }
+
+  &__titles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    gap: 0.8rem;
+  }
+
+  &__name {
+    grid-column: 1 / -1;
   }
 
   &__ingredients-container {

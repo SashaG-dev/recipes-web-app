@@ -47,16 +47,15 @@ class recipeDisplayView {
       this._data.name
     }" class="recipe__img" />
         </div>
-
-        <div class="recipe__titles">
-          <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
-          <p class="recipe-cuisine">${this._data.cuisine}</p>
-          <p class="recipe-category">${this._data.category}</p>
-        </div>
       </div>
     </div>
 
     <div class="recipe__info-container">
+    <div class="recipe__titles">
+    <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
+    <p class="recipe-cuisine">${this._data.cuisine}</p>
+    <p class="recipe-category">${this._data.category}</p>
+  </div>
       <div class="recipe__ingredients">
         <h2 class="heading-2 recipe__ingredients-heading mb-sm">
           Ingredients:
