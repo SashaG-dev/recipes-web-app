@@ -25,6 +25,10 @@
     visibility: visible;
   }
 
+  @include mixin.respond(laptop-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+  }
+
   @include mixin.respond(tab-port) {
     padding: 3.2rem;
   }
@@ -67,6 +71,10 @@
     box-shadow: 0.8rem 0.8rem 0 var.$black;
     overflow: hidden;
 
+    @include mixin.respond(laptop-sm) {
+      width: 36rem;
+    }
+
     @include mixin.respond(tab-port) {
       width: 32rem;
     }
@@ -108,7 +116,7 @@
 
   &__ingredients-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(max-content, 1fr));
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
     row-gap: 1.6rem;
     column-gap: 4.8rem;
     width: 75%;
@@ -128,6 +136,10 @@
         margin-left: 1.6rem;
       }
     }
+  }
+
+  &__ingredient {
+    font-size: 1.4rem;
   }
 
   &__steps-container {
