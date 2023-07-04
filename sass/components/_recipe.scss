@@ -56,7 +56,7 @@
     top: 0;
     left: 50%;
 
-    @include mixin.respond(tab-port) {
+    @include mixin.respond(tab-sm) {
       position: relative;
       top: 0;
       left: 0;
@@ -93,6 +93,7 @@
   &__titles {
     display: grid;
     grid-template-columns: repeat(2, max-content);
+    gap: 0.8rem;
   }
 
   &__name {

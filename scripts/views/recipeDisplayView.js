@@ -29,6 +29,15 @@ class recipeDisplayView {
     window.scrollTo(0, 0);
   }
 
+  closeRecipe() {
+    this._pElement.addEventListener("click", function (e) {
+      if (e.target.classList.contains("bi-x-lg")) {
+        document.querySelector(".recipe").classList.remove("recipe--show");
+        document.querySelector("body").classList.remove("recipe-visible");
+      }
+    });
+  }
+
   _createFinalMarkup() {
     const markup = `
     <article class="recipe">

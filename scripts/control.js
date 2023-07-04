@@ -33,6 +33,7 @@ const init = function () {
   searchBarView.showMobileSearch();
   searchBarView.hideMobileSearch();
   recipeDisplayView.changeEvent(controlSingleRecipe);
+  recipeDisplayView.closeRecipe();
 };
 
 init();
