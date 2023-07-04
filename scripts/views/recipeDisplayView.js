@@ -26,7 +26,6 @@ class recipeDisplayView {
 
     this._pElement.querySelector(".recipe").classList.add("recipe--show");
     this._pElement.closest("body").classList.add("recipe-visible");
-    window.scrollTo(0, 0);
   }
 
   closeRecipe() {
