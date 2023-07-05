@@ -35,8 +35,7 @@ class recipeDisplayView {
     this._pElement.addEventListener("click", function (e) {
       if (
         e.target.classList.contains("bi-x-lg") ||
-        (window.location.href.slice(-4) !== "back" &&
-          document.querySelector(".recipe"))
+        e.target.classList.contains("recipe__close")
       ) {
         const recipe = document.querySelector(".recipe");
         recipe.classList.remove("recipe--show");
