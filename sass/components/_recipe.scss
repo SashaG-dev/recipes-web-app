@@ -116,6 +116,11 @@
     gap: 0.8rem;
   }
 
+  &__subtitles {
+    display: flex;
+    gap: 1.6rem;
+  }
+
   &__name {
     grid-column: 1 / -1;
   }
