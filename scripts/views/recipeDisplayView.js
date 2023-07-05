@@ -33,6 +33,9 @@ class recipeDisplayView {
       if (e.target.classList.contains("bi-x-lg")) {
         document.querySelector(".recipe").classList.remove("recipe--show");
         document.querySelector("body").classList.remove("recipe-visible");
+        setTimeout(function () {
+          document.querySelector(".recipe").remove();
+        }, 500);
       }
     });
   }
@@ -98,10 +101,14 @@ class recipeDisplayView {
   _createIngredientsMarkup() {
     const ingredients = this._data.ingredients;
     return ingredients
-      .map(
-        (ing, i) =>
-          `<li class="recipe__ingredient">${this._data.measurements[i]} ${ing}</li>`
-      )
+      .map((ing, i) => {
+        const amount = this._data.measurements[i]
+          ? this._data.measurements[i]
+          : "";
+        return ing
+          ? `<li class="recipe__ingredient">${amount} ${ing}</li>`
+          : "";
+      })
       .join("");
   }
 
