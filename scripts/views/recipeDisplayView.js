@@ -24,17 +24,25 @@ class recipeDisplayView {
     const markup = this._createFinalMarkup();
     this._pElement.insertAdjacentHTML("afterbegin", markup);
 
-    this._pElement.querySelector(".recipe").classList.add("recipe--show");
+    const recipe = this._pElement.querySelector(".recipe");
+    recipe.classList.add("recipe--show");
+    recipe.setAttribute("tabindex", "0");
+    recipe.focus();
     this._pElement.closest("body").classList.add("recipe-visible");
   }
 
   closeRecipe() {
     this._pElement.addEventListener("click", function (e) {
-      if (e.target.classList.contains("bi-x-lg")) {
-        document.querySelector(".recipe").classList.remove("recipe--show");
+      if (
+        e.target.classList.contains("bi-x-lg") ||
+        (window.location.href.slice(-4) !== "back" &&
+          document.querySelector(".recipe"))
+      ) {
+        const recipe = document.querySelector(".recipe");
+        recipe.classList.remove("recipe--show");
         document.querySelector("body").classList.remove("recipe-visible");
         setTimeout(function () {
-          document.querySelector(".recipe").remove();
+          recipe.remove();
         }, 500);
       }
     });
