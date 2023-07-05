@@ -51,22 +51,26 @@ class recipeDisplayView {
   _createFinalMarkup() {
     const markup = `
     <article class="recipe">
+    <a href="#back" class="recipe__close"><i class="bi bi-x-lg"></i></a>
+
     <div class="recipe__main-container">
       <div class="recipe__sticky">
         <div class="recipe__img-container">
-          <img src="${this._data.image}" alt="${
-      this._data.name
-    }" class="recipe__img" />
+          <img
+            src="${this._data.image}"
+            alt="${this._data.name}"
+            class="recipe__img"
+          />
         </div>
       </div>
     </div>
 
     <div class="recipe__info-container">
-    <div class="recipe__titles">
-    <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
-    <p class="recipe-cuisine">${this._data.cuisine}</p>
-    <p class="recipe-category">${this._data.category}</p>
-  </div>
+      <div class="recipe__titles">
+        <h2 class="heading-2 recipe__name mb-sm">${this._data.name}</h2>
+        <p class="recipe-cuisine">${this._data.cuisine}</p>
+        <p class="recipe-category">${this._data.category}</p>
+      </div>
       <div class="recipe__ingredients">
         <h2 class="heading-2 recipe__ingredients-heading mb-sm">
           Ingredients:
@@ -77,9 +81,7 @@ class recipeDisplayView {
       </div>
 
       <div class="recipe__steps">
-        <h2 class="heading-2 recipe__steps-heading mb-sm">
-          Instructions:
-        </h2>
+        <h2 class="heading-2 recipe__steps-heading mb-sm">Instructions:</h2>
         <div class="recipe__steps-link mb-sm">
           <p>
             Watch the YouTube tutorial
@@ -98,8 +100,6 @@ class recipeDisplayView {
         </ol>
       </div>
     </div>
-
-    <a href="#back" class="recipe__close"><i class="bi bi-x-lg"></i></a>
   </article>
     `;
 
