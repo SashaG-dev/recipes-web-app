@@ -26,11 +26,11 @@ class searchBarView {
   showMobileSearch() {
     this._pElement
       .closest(".header")
-      .querySelector(".actions .show-search__btn")
+      .querySelector(".form-container .show-search__btn")
       .addEventListener("click", function (e) {
         e.preventDefault();
         const searchbar = e.target
-          .closest(".header")
+          .closest(".form-container")
           .querySelector(".search__label");
         searchbar.classList.add("show-search");
       });

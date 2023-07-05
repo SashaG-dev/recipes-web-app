@@ -23,8 +23,18 @@
     gap: 2.4rem;
     align-items: center;
 
+    &:first-of-type {
+      @include mixin.respond(phone-land) {
+        margin-right: auto;
+      }
+    }
+
     @include mixin.respond(tab-sm-port) {
       gap: 1.6rem;
+    }
+
+    @include mixin.respond(phone-port) {
+      gap: 0.8rem;
     }
   }
 
