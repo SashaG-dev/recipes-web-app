@@ -6,6 +6,7 @@ class recipeDisplayView {
     this._data = data;
     const markup = this._createFinalMarkup();
     this._pElement.insertAdjacentHTML('afterbegin', markup);
+    this.renderLoading();
     this._recipe = this._pElement.querySelector('.recipe');
     this._focusRecipe();
     this._closeRecipe();
@@ -41,10 +42,11 @@ class recipeDisplayView {
         e.target.classList.contains('recipe__close')
       ) {
         const currentRecipe = document.querySelector('.recipe');
+        const overlays = document.querySelectorAll('.loading-overlay');
         currentRecipe.classList.remove('recipe--show');
         document.querySelector('body').classList.remove('recipe-visible');
-        document.querySelector('.loading-overlay').remove();
         setTimeout(() => currentRecipe.remove(), 500);
+        overlays.forEach((o) => o.remove());
       }
     });
   }

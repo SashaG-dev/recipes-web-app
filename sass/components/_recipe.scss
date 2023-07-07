@@ -40,10 +40,6 @@
     grid-template-columns: 1fr;
   }
 
-  @include mixin.respond(phone-land) {
-    font-size: 1.4rem;
-  }
-
   &__main-container {
     justify-self: center;
     position: relative;
@@ -107,6 +103,7 @@
     @include mixin.respond(phone-land) {
       gap: 2rem;
       padding-left: 0.8rem;
+      margin-left: 0rem;
     }
   }
 
@@ -146,12 +143,6 @@
       @include mixin.respond(phone-land) {
         margin-left: 1.6rem;
       }
-    }
-  }
-
-  &__ingredient {
-    @include mixin.respond(tab-sm-port) {
-      font-size: 1.4rem;
     }
   }
 

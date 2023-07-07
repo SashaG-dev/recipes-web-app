@@ -1,5 +1,5 @@
-@use "../abstracts/variables" as var;
-@use "../abstracts/mixins" as mixin;
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
 
 *,
 *::before,
@@ -16,10 +16,6 @@ html {
 
   @include mixin.respond(desktop) {
     font-size: 75%;
-  }
-
-  @include mixin.respond(tab-port) {
-    font-size: 62.5%;
   }
 }
 
