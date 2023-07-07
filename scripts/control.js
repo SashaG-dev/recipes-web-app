@@ -31,8 +31,6 @@ const controlSingleRecipe = async function () {
 
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
-  searchBarView.showMobileSearch();
-  searchBarView.hideMobileSearch();
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
 };
 
