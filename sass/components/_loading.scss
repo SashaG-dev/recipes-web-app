@@ -1,6 +1,6 @@
-@use "../abstracts/variables" as var;
-@use "../abstracts/mixins" as mixin;
-@use "../abstracts/animations";
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/animations';
 
 .loading {
   @include mixin.centerFlex;
@@ -29,4 +29,15 @@
       animation-delay: 0.4s;
     }
   }
+}
+
+.loading-overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(var.$black, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  animation: loopLoad 1.5s infinite;
 }

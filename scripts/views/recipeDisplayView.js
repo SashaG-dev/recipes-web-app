@@ -43,6 +43,7 @@ class recipeDisplayView {
         const currentRecipe = document.querySelector('.recipe');
         currentRecipe.classList.remove('recipe--show');
         document.querySelector('body').classList.remove('recipe-visible');
+        document.querySelector('.loading-overlay').remove();
         setTimeout(() => currentRecipe.remove(), 500);
       }
     });
@@ -123,6 +124,13 @@ class recipeDisplayView {
       .split('+')
       .map((step) => (step ? `<li class="recipe__step">${step}</li>` : ''))
       .join('');
+  }
+
+  renderLoading() {
+    const loading = `
+      <div class="loading-overlay"></div>
+    `;
+    this._pElement.insertAdjacentHTML('afterbegin', loading);
   }
 }
 

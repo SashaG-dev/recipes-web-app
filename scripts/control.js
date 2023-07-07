@@ -21,6 +21,7 @@ const controlSingleRecipe = async function () {
   try {
     const id = recipeDisplayView.showId();
     if (!id) return;
+    recipeDisplayView.renderLoading();
     await model.fetchClickedRecipe(id);
     recipeDisplayView.renderInfo(model.state.recipe);
   } catch (err) {
