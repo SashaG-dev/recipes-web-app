@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-import * as model from "./model.js";
-import searchBarView from "./views/searchBarView.js";
-import allRecipesView from "./views/allRecipesView.js";
-import recipeDisplayView from "./views/recipeDisplayView.js";
+import * as model from './model.js';
+import searchBarView from './views/searchBarView.js';
+import allRecipesView from './views/allRecipesView.js';
+import recipeDisplayView from './views/recipeDisplayView.js';
 
 const controlAllRecipes = async function () {
   try {
@@ -32,8 +32,7 @@ const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   searchBarView.showMobileSearch();
   searchBarView.hideMobileSearch();
-  recipeDisplayView.changeEvent(controlSingleRecipe);
-  recipeDisplayView.closeRecipe();
+  recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
 };
 
 init();
