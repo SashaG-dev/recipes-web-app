@@ -1,5 +1,5 @@
-import { getItems } from "./helpers.js";
-import { getJSON } from "./helpers.js";
+import { getItems } from './helpers.js';
+import { getJSON } from './helpers.js';
 
 export const state = {
   recipe: {},
@@ -13,7 +13,7 @@ export const fetchRecipe = async function (type, input) {
     const data = await getJSON(type, input);
     if (!data.meals)
       throw new Error(
-        "There was an error while getting this recipe. Please try again!"
+        'There was an error while getting this recipe. Please try again!'
       );
     const recipe = data.meals[0];
     state.recipe = {
@@ -25,8 +25,8 @@ export const fetchRecipe = async function (type, input) {
       image: recipe.strMealThumb,
       tags: recipe.strTags,
       video: recipe.strYoutube,
-      ingredients: getItems(recipe, "strIngredient"),
-      measurements: getItems(recipe, "strMeasure"),
+      ingredients: getItems(recipe, 'strIngredient'),
+      measurements: getItems(recipe, 'strMeasure'),
     };
   } catch (err) {
     console.error(err);
@@ -35,14 +35,14 @@ export const fetchRecipe = async function (type, input) {
 
 // For click on a single meal
 export const fetchClickedRecipe = async function (id) {
-  return fetchRecipe("lookup.php?i=", id);
+  return fetchRecipe('lookup.php?i=', id);
 };
 
 // For searchbar query
 export const fetchSearchResults = async function (input) {
   try {
-    const data = await getJSON("search.php?s=", input);
-    if (!data.meals) throw new Error("No recipes found. Please try again!");
+    const data = await getJSON('search.php?s=', input);
+    if (!data.meals) throw new Error('No recipes found. Please try again!');
     state.search.allResults = data.meals.map((meal) => {
       return {
         id: meal.idMeal,
