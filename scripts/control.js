@@ -34,6 +34,7 @@ const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
   sideBarView.toggleBar();
+  sideBarView.escapeSideBar();
 };
 
 init();

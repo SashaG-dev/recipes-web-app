@@ -120,6 +120,8 @@
     left: 0;
     z-index: 110;
     border-right: var.$border;
+    opacity: 0;
+    visibility: hidden;
     transform: translateX(-100%);
     transition: var.$transitions;
 
@@ -132,6 +134,8 @@
     }
 
     &--open {
+      opacity: 1;
+      visibility: visible;
       transform: translateX(0);
     }
   }
