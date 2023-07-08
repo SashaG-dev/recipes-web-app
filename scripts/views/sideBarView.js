@@ -34,6 +34,15 @@ class sideBarView {
     });
   }
 
+  randomRecipeEvent(handler) {
+    this._pElement.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn__surprise')) {
+        this.closeSideBar();
+        handler();
+      }
+    });
+  }
+
   closeSideBar() {
     const body = document.querySelector('body');
     const overlay = document.querySelector('.sidebar-overlay');

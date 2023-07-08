@@ -30,9 +30,20 @@ const controlSingleRecipe = async function () {
   }
 };
 
+const controlRandomRecipe = async function () {
+  try {
+    recipeDisplayView.renderLoading();
+    await model.fetchRandomRecipe();
+    recipeDisplayView.renderInfo(model.state.recipe);
+  } catch (err) {
+    allRecipesView.renderError();
+  }
+};
+
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
+  sideBarView.randomRecipeEvent(controlRandomRecipe);
   sideBarView.toggleBar();
   sideBarView.escapeSideBar();
 };
