@@ -28,12 +28,32 @@
         <div class="sidebar-overlay"></div>
         <div class="sidebar__menu-content">
           <div class="sidebar__menu-container">
-            <nav class="sidebar-nav">
+            <nav class="sidebar__nav">
               <!-- FOOD NAV -->
               <div class="sidebar__food">
-                <div class="sidebar__food-item">Category</div>
-                <div class="sidebar__food-item">Cuisines</div>
-                <div class="sidebar__food-item">Surprise Me!</div>
+                <div class="sidebar__food-item">
+                  <button class="sidebar-title sidebar-title--lists">
+                    Categories <i class="bi bi-chevron-down"></i>
+                  </button>
+
+                  <div class="sidebar__list-container">
+                    <ul class="sidebar__list"></ul>
+                  </div>
+                </div>
+
+                <div class="sidebar__food-item">
+                  <button class="sidebar-title sidebar-title--lists">
+                    Cuisines <i class="bi bi-chevron-down"></i>
+                  </button>
+
+                  <div class="sidebar__list-container">
+                    <ul class="sidebar__list"></ul>
+                  </div>
+                </div>
+
+                <div class="sidebar__food-item">
+                  <button class="btn__surprise">Surprise Me!</button>
+                </div>
               </div>
             </nav>
           </div>
