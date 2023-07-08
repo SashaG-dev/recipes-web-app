@@ -1,13 +1,17 @@
-@use "../abstracts/variables" as var;
-@use "../abstracts/mixins" as mixin;
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.6rem 3.2rem;
+  background-color: var.$primary-lightest;
   border-bottom: var.$border;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 120;
 
   @include mixin.respond(desktop) {
     width: 140rem;
