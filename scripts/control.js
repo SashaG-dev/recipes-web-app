@@ -4,6 +4,7 @@ import * as model from './model.js';
 import searchBarView from './views/searchBarView.js';
 import allRecipesView from './views/allRecipesView.js';
 import recipeDisplayView from './views/recipeDisplayView.js';
+import sideBarView from './views/sideBarView.js';
 
 const controlAllRecipes = async function () {
   try {
@@ -32,6 +33,7 @@ const controlSingleRecipe = async function () {
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
+  sideBarView.toggleBar();
 };
 
 init();
