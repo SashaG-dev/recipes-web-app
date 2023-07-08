@@ -2,8 +2,19 @@
 @use '../abstracts/mixins' as mixin;
 
 .sidebar {
-  &__bar {
-    @include mixin.centerFlex;
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(var.$black, 0.5);
+    display: none;
+
+    &--open {
+      display: block;
+    }
   }
 
   &__btn {
@@ -12,6 +23,8 @@
     height: 16px;
     width: 3rem;
     cursor: pointer;
+    position: relative;
+    z-index: 120;
 
     @include mixin.respond(phone-land) {
       width: 2.4rem;
@@ -88,7 +101,36 @@
     }
   }
 
+  &__menu-content {
+    width: 40rem;
+    height: 100vh;
+    background-color: var.$neutral;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 110;
+    border-right: var.$border;
+    transform: translateX(-100%);
+    transition: var.$transitions;
+
+    @include mixin.respond(phone-land) {
+      width: 36rem;
+    }
+
+    @include mixin.respond(phone-port) {
+      width: 28rem;
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
   &__food {
     display: none;
   }
+}
+
+.sidebar-open {
+  overflow: hidden;
 }
