@@ -20,28 +20,27 @@
   <body>
     <header class="header">
       <div>
-        <nav class="user-nav">
-          <div class="user-nav__bar">
-            <button class="user-nav__btn">
+        <nav class="sidebar">
+          <div class="sidebar__bar">
+            <button class="sidebar__btn">
               <span>&nbsp;</span>
             </button>
           </div>
 
-          <div class="user-nav__menu-content">
-            <div class="user-nav__menu-container">
-              <!-- FOOD NAV MOBILE -->
-              <div class="user-nav__food">
-                <div class="user-nav__food-item">Search by Category</div>
-                <div class="user-nav__food-item">Search by Cuisine</div>
-                <div class="user-nav__food-item">5 Ingredients or Less</div>
-                <div class="user-nav__food-item">Surprise Me!</div>
+          <div class="sidebar__menu-content">
+            <div class="sidebar__menu-container">
+              <!-- FOOD NAV -->
+              <div class="sidebar__food">
+                <div class="sidebar__food-item">Category</div>
+                <div class="sidebar__food-item">Cuisines</div>
+                <div class="sidebar__food-item">Surprise Me!</div>
               </div>
             </div>
           </div>
         </nav>
 
         <h1 class="heading-1">
-          <a href="#home" class="logo" title="Return to Home">Home</a>
+          <a href="" class="logo" title="Return to Home">Home</a>
         </h1>
       </div>
 
@@ -73,30 +72,6 @@
       </div>
     </header>
 
-    <!-- FOOD NAV LARGER SCREENS -->
-    <nav class="food-nav">
-      <ul class="food-nav__list">
-        <li class="food-nav__item">
-          <button class="food-nav__link btn">
-            <span>Search by </span>Category
-          </button>
-        </li>
-        <li class="food-nav__item">
-          <button class="food-nav__link btn">
-            <span>Search by </span>Cuisine
-          </button>
-        </li>
-        <li class="food-nav__item">
-          <button class="food-nav__link btn">
-            5 <span>Ingredients </span>or Less
-          </button>
-        </li>
-        <li class="food-nav__item">
-          <button class="food-nav__link btn">Surprise Me!</button>
-        </li>
-      </ul>
-    </nav>
-
     <main class="main">
       <section class="home"></section>
       <section class="recipes">
@@ -106,5 +81,13 @@
         <div class="recipes__container container"></div>
       </section>
     </main>
+
+    <script>
+      const menuBtn = document.querySelector('.sidebar__btn');
+
+      menuBtn.addEventListener('click', function (e) {
+        menuBtn.classList.toggle('sidebar__btn--active');
+      });
+    </script>
   </body>
 </html>
