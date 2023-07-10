@@ -13,7 +13,7 @@ export const fetchRecipe = async function (type, input) {
     const data = await getJSON(type, input);
     if (!data.meals)
       throw new Error(
-        'There was an error while getting this recipe. Please try again!'
+        'There was an error getting your results. Please check your connection and try again!'
       );
     const recipe = data.meals[0];
     state.recipe = {
@@ -33,7 +33,6 @@ export const fetchRecipe = async function (type, input) {
   }
 };
 
-// For searchbar query
 export const fetchAllResults = async function (type, input) {
   try {
     const data = await getJSON(type, input);
@@ -54,27 +53,22 @@ export const fetchAllResults = async function (type, input) {
   }
 };
 
-// For click on a single meal
 export const fetchClickedRecipe = async function (id) {
   return fetchRecipe('lookup.php?i=', id);
 };
 
-// For searchbar results
 export const fetchSearchResults = async function (input) {
   return fetchAllResults('search.php?s=', input);
 };
 
-// For random result
 export const fetchRandomRecipe = async function () {
   return fetchAllResults('random.php', '');
 };
 
-// For categories
 export const fetchCategory = async function (category) {
   return fetchAllResults('filter.php?c=', category);
 };
 
-// For cuisines
 export const fetchCuisine = async function (cuisine) {
   return fetchAllResults('filter.php?a=', cuisine);
 };
