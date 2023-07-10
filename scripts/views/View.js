@@ -15,6 +15,11 @@ export default class View {
     this._pElement.innerHTML = '';
   }
 
+  _createFinalMarkup() {
+    this._showHeadingCount();
+    return this._data.map((recipe) => this._createEachMarkup(recipe)).join('');
+  }
+
   renderHeading() {
     const headings = Array.from(
       document.querySelectorAll('.recipes .heading-2')
@@ -22,6 +27,14 @@ export default class View {
     headings.forEach((heading) => heading.classList.remove('heading--show'));
     if (this._data.length) this._heading.classList.add('heading--show');
     else this._heading.classList.remove('heading--show');
+  }
+
+  _showHeadingCount() {
+    const count = this._heading.querySelector('.recipes__total');
+    if (this._data.length > 1) {
+      count.textContent = `${this._data.length} Recipes`;
+    } else if (this._data.length === 1)
+      count.textContent = `${this._data.length} Recipe`;
   }
 
   renderLoading() {

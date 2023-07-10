@@ -1,16 +1,11 @@
 import View from './View.js';
 
-class allRecipesView extends View {
+class listRecipesView extends View {
   _heading = document.querySelector('.recipes__heading');
-
-  _createFinalMarkup() {
-    this._showHeadingCount();
-    return this._data.map((recipe) => this._createEachMarkup(recipe)).join('');
-  }
 
   _createEachMarkup(recipe) {
     return `
-    <div class="recipe-card">
+    <div class="recipe-card recipe-card--lists">
             <div class="recipe-card__img-container">
               <a href="#${recipe.id}" class="recipe-card__link">
                 <img
@@ -27,15 +22,9 @@ class allRecipesView extends View {
         : recipe.name
     }</a>
             </h3>
-            <div class="recipe-card__details">
-              <p class="recipe-cuisine">${recipe.cuisine}</p>
-              <p class="recipe-category">
-                ${recipe.category}
-              </p>
-            </div>
           </div>
     `;
   }
 }
 
-export default new allRecipesView();
+export default new listRecipesView();

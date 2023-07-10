@@ -6,6 +6,7 @@ import allRecipesView from './views/allRecipesView.js';
 import recipeDisplayView from './views/recipeDisplayView.js';
 import sideBarView from './views/sideBarView.js';
 import randomRecipeView from './views/randomRecipeView.js';
+import listRecipesView from './views/listRecipesView.js';
 
 const controlAllRecipes = async function () {
   try {
@@ -41,10 +42,32 @@ const controlRandomRecipe = async function () {
   }
 };
 
+const controlCategory = async function (category) {
+  try {
+    allRecipesView.renderLoading();
+    await model.fetchCategory(category);
+    listRecipesView.renderInfo(model.state.search.allResults);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const controlCuisine = async function (cuisine) {
+  try {
+    allRecipesView.renderLoading();
+    await model.fetchCuisine(cuisine);
+    listRecipesView.renderInfo(model.state.search.allResults);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
   sideBarView.sidebarEvents(controlRandomRecipe);
+  sideBarView.categoryEvent(controlCategory);
+  sideBarView.cuisineEvent(controlCuisine);
 };
 
 init();

@@ -1,5 +1,5 @@
-@use "../abstracts/variables" as var;
-@use "../abstracts/mixins" as mixin;
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
 
 .recipe-card {
   width: 24rem;
@@ -30,7 +30,15 @@
     }
   }
 
+  &--lists &__title {
+    transform: translateY(0);
+    border: none;
+    padding: 0.8rem 1.6rem;
+  }
+
   &__img {
+    object-fit: cover;
+
     @include mixin.respond(tab-sm) {
       width: 20rem;
     }

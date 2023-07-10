@@ -68,3 +68,13 @@ export const fetchSearchResults = async function (input) {
 export const fetchRandomRecipe = async function () {
   return fetchAllResults('random.php', '');
 };
+
+// For categories
+export const fetchCategory = async function (category) {
+  return fetchAllResults('filter.php?c=', category);
+};
+
+// For cuisines
+export const fetchCuisine = async function (cuisine) {
+  return fetchAllResults('filter.php?a=', cuisine);
+};

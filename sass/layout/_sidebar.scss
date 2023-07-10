@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as var;
 @use '../abstracts/mixins' as mixin;
+@use '../abstracts/animations';
 
 .sidebar {
   &-overlay {
@@ -113,7 +114,6 @@
 
   &__menu-content {
     width: 40rem;
-    height: 110vh;
     background-color: var.$neutral;
     position: fixed;
     top: 0;
@@ -124,7 +124,6 @@
     visibility: hidden;
     transform: translateX(-100%);
     transition: var.$transitions;
-    overflow: auto;
 
     @include mixin.respond(phone-land) {
       width: 36rem;
@@ -141,11 +140,17 @@
     }
   }
 
+  &__menu-container {
+    overflow-y: auto;
+    height: 100vh;
+  }
+
   &__food {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.6rem;
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
   }
 
   &-title--lists {
@@ -168,14 +173,14 @@
 
   &__list-container {
     height: 0;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
+    margin-top: 1.6rem;
     transition: var.$transitions;
 
     &--show {
       height: 100%;
-      opacity: 1;
-      visibility: visible;
+      display: block;
+      animation: showList 0.5s;
     }
   }
 
