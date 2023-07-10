@@ -10,6 +10,7 @@ class recipeDisplayView {
     this._recipe = this._pElement.querySelector('.recipe');
     this._focusRecipe();
     this._closeRecipe();
+    this._clearUnselectedRecipes();
   }
 
   showId() {
@@ -22,10 +23,33 @@ class recipeDisplayView {
 
   recipeDisplayEvent(handler) {
     ['hashchange', 'load'].forEach((event) =>
-      window.addEventListener(event, function (e) {
+      window.addEventListener(event, (e) => {
+        this._clearBackRecipes();
         handler();
       })
     );
+  }
+
+  _clearRecipes() {
+    const recipes = Array.from(document.querySelectorAll('.recipe'));
+    const overlays = Array.from(document.querySelectorAll('.loading-overlay'));
+    document.querySelector('body').classList.remove('recipe-visible');
+    recipes.forEach((r) => r.classList.remove('recipe--show'));
+    setTimeout(() => recipes.forEach((r) => r.remove()), 500);
+    overlays.forEach((o) => o.remove());
+  }
+
+  _clearUnselectedRecipes() {
+    const url = window.location.href.slice(-5);
+    const recipes = Array.from(document.querySelectorAll('.recipe'));
+    recipes.forEach((recipe) => {
+      if (recipe.dataset.id !== url) recipe.remove();
+    });
+  }
+
+  _clearBackRecipes() {
+    const url = window.location.href.slice(-4);
+    if (url === 'back' || url === 'home') this._clearRecipes();
   }
 
   _focusRecipe() {
@@ -36,24 +60,21 @@ class recipeDisplayView {
   }
 
   _closeRecipe() {
-    this._pElement.addEventListener('click', function (e) {
+    this._pElement.addEventListener('click', (e) => {
       if (
         e.target.classList.contains('bi-x-lg') ||
         e.target.classList.contains('recipe__close')
       ) {
         const currentRecipe = document.querySelector('.recipe');
-        const overlays = document.querySelectorAll('.loading-overlay');
         currentRecipe.classList.remove('recipe--show');
-        document.querySelector('body').classList.remove('recipe-visible');
-        setTimeout(() => currentRecipe.remove(), 500);
-        overlays.forEach((o) => o.remove());
+        this._clearRecipes();
       }
     });
   }
 
   _createFinalMarkup() {
     const markup = `
-    <article class="recipe">
+    <article class="recipe" data-id="${this._data.id}">
     <a href="#back" class="recipe__close"><i class="bi bi-x-lg"></i></a>
     <div class="recipe__main-container">
       <div class="recipe__sticky">
