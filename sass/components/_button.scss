@@ -28,13 +28,19 @@
 }
 
 .btn__surprise {
-  background-color: var.$primary;
-  font-size: 3rem;
-  border: 2px solid var.$neutral;
-  border-radius: 5px;
-  padding: 0.8rem 1.6rem;
-  cursor: pointer;
-  transition: var.$transitions;
+  &:link,
+  &:visited {
+    color: var.$black;
+    text-decoration: none;
+    display: block;
+    background-color: var.$primary;
+    font-size: 3rem;
+    border: 2px solid var.$neutral;
+    border-radius: 5px;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    transition: var.$transitions;
+  }
 
   @include mixin.respond(phone-land) {
     font-size: 2.4rem;
@@ -49,5 +55,29 @@
   &:active {
     transform: translateY(-0.2rem);
     box-shadow: -0.2rem 0.2rem 0 var.$black;
+  }
+}
+
+.btn__list {
+  color: var.$gray;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: var.$transitions;
+
+  &:hover,
+  &:active {
+    color: var.$black;
+    border-bottom: var.$border;
+  }
+}
+
+.list-selected {
+  color: var.$primary-darkest;
+
+  i {
+    transform: rotate(-180deg);
   }
 }

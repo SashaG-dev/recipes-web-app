@@ -14,6 +14,7 @@
 
     &--open {
       display: block;
+      cursor: pointer;
     }
   }
 
@@ -103,7 +104,7 @@
 
   &__nav {
     margin-top: 8rem;
-    margin-left: 6.4rem;
+    margin-left: 8rem;
 
     @include mixin.respond(phone-land) {
       margin-top: 7.2rem;
@@ -124,6 +125,7 @@
     visibility: hidden;
     transform: translateX(-100%);
     transition: var.$transitions;
+    overflow: auto;
 
     @include mixin.respond(phone-land) {
       width: 36rem;
@@ -143,6 +145,7 @@
   &__food {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1.6rem;
   }
 
@@ -155,6 +158,7 @@
 
     & i {
       font-size: 1.8rem;
+      transition: var.$transitions;
     }
 
     &:hover,
@@ -163,8 +167,26 @@
     }
   }
 
+  &__list-container {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: var.$transitions;
+
+    &--show {
+      height: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
   &__list {
-    display: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-left: 0.8rem;
+    margin-bottom: 1.6rem;
   }
 }
 
