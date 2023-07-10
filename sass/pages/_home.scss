@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as var;
+@use '../abstracts/animations';
 
 .recipes {
   padding: 1.6rem 2.4rem;
@@ -11,6 +12,11 @@
   }
 }
 
+.random-card__heading {
+  display: none;
+}
+
 .heading--show {
   display: block;
+  animation: recipesHeading 1s;
 }

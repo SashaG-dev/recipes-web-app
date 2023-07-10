@@ -7,8 +7,10 @@
   border: var.$border;
   border-radius: 10px;
   max-width: 64rem;
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(2, 50%);
+  animation: showResults 1.5s;
 
   @include mixin.respond(phone-land) {
     max-width: 40rem;
@@ -23,6 +25,11 @@
   &__img-container {
     border-right: var.$border;
     overflow: hidden;
+
+    @include mixin.respond(phone-port) {
+      border-right: none;
+      border-bottom: var.$border;
+    }
   }
 
   &__link:hover &__img,

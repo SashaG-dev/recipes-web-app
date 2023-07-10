@@ -5,6 +5,7 @@ import searchBarView from './views/searchBarView.js';
 import allRecipesView from './views/allRecipesView.js';
 import recipeDisplayView from './views/recipeDisplayView.js';
 import sideBarView from './views/sideBarView.js';
+import randomRecipeView from './views/randomRecipeView.js';
 
 const controlAllRecipes = async function () {
   try {
@@ -32,19 +33,18 @@ const controlSingleRecipe = async function () {
 
 const controlRandomRecipe = async function () {
   try {
+    randomRecipeView.renderLoading();
     await model.fetchRandomRecipe();
-    console.log(...model.state.search.allResults);
+    randomRecipeView.renderInfo(model.state.search.allResults);
   } catch (err) {
-    allRecipesView.renderError();
+    console.error(err);
   }
 };
 
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
-  sideBarView.randomRecipeEvent(controlRandomRecipe);
-  sideBarView.toggleBar();
-  sideBarView.escapeSideBar();
+  sideBarView.sidebarEvents(controlRandomRecipe);
 };
 
 init();

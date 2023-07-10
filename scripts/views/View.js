@@ -16,6 +16,10 @@ export default class View {
   }
 
   renderHeading() {
+    const headings = Array.from(
+      document.querySelectorAll('.recipes .heading-2')
+    );
+    headings.forEach((heading) => heading.classList.remove('heading--show'));
     if (this._data.length) this._heading.classList.add('heading--show');
     else this._heading.classList.remove('heading--show');
   }

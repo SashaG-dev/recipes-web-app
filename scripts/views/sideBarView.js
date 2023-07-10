@@ -1,8 +1,5 @@
-import View from './View.js';
-
 class sideBarView {
   _pElement = document.querySelector('.header');
-  _data;
 
   toggleBar() {
     this._pElement.addEventListener('click', (e) => {
@@ -28,7 +25,9 @@ class sideBarView {
     });
   }
 
-  randomRecipeEvent(handler) {
+  sidebarEvents(handler) {
+    this.toggleBar();
+    this.escapeSideBar();
     this._pElement.addEventListener('click', (e) => {
       if (e.target.classList.contains('btn__surprise')) {
         e.preventDefault();

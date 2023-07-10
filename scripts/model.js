@@ -45,6 +45,7 @@ export const fetchAllResults = async function (type, input) {
         image: meal.strMealThumb,
         category: meal.strCategory,
         cuisine: meal.strArea,
+        instructions: meal.strInstructions,
       };
     });
   } catch (err) {
