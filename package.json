@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.10.5"
   }
 }
