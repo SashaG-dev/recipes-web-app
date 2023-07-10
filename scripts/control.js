@@ -32,9 +32,8 @@ const controlSingleRecipe = async function () {
 
 const controlRandomRecipe = async function () {
   try {
-    recipeDisplayView.renderLoading();
     await model.fetchRandomRecipe();
-    recipeDisplayView.renderInfo(model.state.recipe);
+    console.log(...model.state.search.allResults);
   } catch (err) {
     allRecipesView.renderError();
   }

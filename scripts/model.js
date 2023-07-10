@@ -65,5 +65,5 @@ export const fetchSearchResults = async function (input) {
 
 // For random result
 export const fetchRandomRecipe = async function () {
-  return fetchRecipe('random.php', '');
+  return fetchAllResults('random.php', '');
 };

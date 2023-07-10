@@ -1,23 +1,17 @@
+import View from './View.js';
+
 class sideBarView {
   _pElement = document.querySelector('.header');
+  _data;
 
   toggleBar() {
-    this._pElement.addEventListener('click', function (e) {
+    this._pElement.addEventListener('click', (e) => {
       if (
         e.target.classList.contains('sidebar__btn') ||
         e.target.classList.contains('sidebar__btn-span') ||
         e.target.classList.contains('sidebar-overlay')
       ) {
-        const button = e.target
-          .closest('.sidebar')
-          .querySelector('.sidebar__btn');
-        const body = this.closest('body');
-        const sidebar = this.querySelector('.sidebar__menu-content');
-        const overlay = this.querySelector('.sidebar-overlay');
-        button.classList.toggle('sidebar__btn--active');
-        body.classList.toggle('sidebar-open');
-        sidebar.classList.toggle('sidebar__menu-content--open');
-        overlay.classList.toggle('sidebar-overlay--open');
+        this.handleSideBar('toggle');
       }
     });
   }
@@ -29,7 +23,7 @@ class sideBarView {
         e.key === 'Escape' &&
         button.classList.contains('sidebar__btn--active')
       ) {
-        this.closeSideBar();
+        this.handleSideBar('remove');
       }
     });
   }
@@ -37,21 +31,22 @@ class sideBarView {
   randomRecipeEvent(handler) {
     this._pElement.addEventListener('click', (e) => {
       if (e.target.classList.contains('btn__surprise')) {
-        this.closeSideBar();
+        e.preventDefault();
+        this.handleSideBar('remove');
         handler();
       }
     });
   }
 
-  closeSideBar() {
+  handleSideBar(type) {
     const body = document.querySelector('body');
     const overlay = document.querySelector('.sidebar-overlay');
     const menu = document.querySelector('.sidebar__menu-content');
     const btn = document.querySelector('.sidebar__btn');
-    body.classList.remove('sidebar-open');
-    overlay.classList.remove('sidebar-overlay--open');
-    menu.classList.remove('sidebar__menu-content--open');
-    btn.classList.remove('sidebar__btn--active');
+    body.classList[type]('sidebar-open');
+    overlay.classList[type]('sidebar-overlay--open');
+    menu.classList[type]('sidebar__menu-content--open');
+    btn.classList[type]('sidebar__btn--active');
   }
 }
 
