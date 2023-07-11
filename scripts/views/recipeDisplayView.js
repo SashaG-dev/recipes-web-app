@@ -24,8 +24,10 @@ class recipeDisplayView {
   recipeDisplayEvent(handler) {
     ['hashchange', 'load'].forEach((event) =>
       window.addEventListener(event, (e) => {
-        this._clearBackRecipes();
-        handler();
+        if (!window.location.href.includes('que')) {
+          this._clearClosedRecipes();
+          handler();
+        } else this._clearRecipes();
       })
     );
   }
@@ -47,9 +49,10 @@ class recipeDisplayView {
     });
   }
 
-  _clearBackRecipes() {
-    const url = window.location.href.slice(-4);
-    if (url === 'back' || url === 'home') this._clearRecipes();
+  _clearClosedRecipes() {
+    const url = window.location.href;
+    const origin = window.location.origin;
+    if (url === origin + '/#home') this._clearRecipes();
   }
 
   _focusRecipe() {
@@ -75,7 +78,7 @@ class recipeDisplayView {
   _createFinalMarkup() {
     const markup = `
     <article class="recipe" data-id="${this._data.id}">
-    <a href="#back" class="recipe__close"><i class="bi bi-x-lg"></i></a>
+    <button class="recipe__close"><i class="bi bi-x-lg"></i></button>
     <div class="recipe__main-container">
       <div class="recipe__sticky">
         <div class="recipe__img-container">

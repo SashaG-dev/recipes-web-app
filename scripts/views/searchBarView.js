@@ -4,18 +4,41 @@ class searchBarView {
 
   showQuery() {
     const query = this._pElement.querySelector('.search__input').value;
+    window.location.href = `${window.location.origin}/#que=${query}`;
     this._clearInput();
     this._hideSearch();
     return query;
   }
 
+  showRefreshQuery() {
+    if (window.location.href.includes('/#que=')) {
+      const search = window.location.origin + '/#que=';
+      const query = window.location.href.replace(search, '');
+      return query;
+    }
+  }
+
   searchEvent(handler) {
     this.showMobileSearch();
     this.hideMobileSearch();
-    this._pElement.addEventListener('submit', function (e) {
+    this._pElement.addEventListener('submit', (e) => {
       e.preventDefault();
-      handler();
+      handler(this.showQuery());
     });
+  }
+
+  refreshEvent(handler) {
+    ['DOMContentLoaded', 'hashchange'].forEach((event) => {
+      window.addEventListener(event, (e) => {
+        if (window.location.href.includes('que')) {
+          handler(this.showRefreshQuery());
+        }
+      });
+    });
+  }
+
+  _saveSearch() {
+    window.addEventListener('load', (e) => {});
   }
 
   _clearInput() {

@@ -28,19 +28,16 @@
 }
 
 .btn__surprise {
-  &:link,
-  &:visited {
-    color: var.$black;
-    text-decoration: none;
-    display: block;
-    background-color: var.$primary;
-    font-size: 3rem;
-    border: 2px solid var.$neutral;
-    border-radius: 5px;
-    padding: 0.8rem 1.6rem;
-    cursor: pointer;
-    transition: var.$transitions;
-  }
+  color: var.$black;
+  text-decoration: none;
+  display: block;
+  background-color: var.$primary;
+  font-size: 3rem;
+  border: 2px solid var.$neutral;
+  border-radius: 5px;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  transition: var.$transitions;
 
   @include mixin.respond(phone-land) {
     font-size: 2.4rem;

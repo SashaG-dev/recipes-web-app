@@ -8,9 +8,9 @@ import sideBarView from './views/sideBarView.js';
 import randomRecipeView from './views/randomRecipeView.js';
 import listRecipesView from './views/listRecipesView.js';
 
-const controlAllRecipes = async function () {
+const controlAllRecipes = async function (search) {
   try {
-    const query = searchBarView.showQuery();
+    const query = search;
     if (!query) return;
     allRecipesView.renderLoading();
     await model.fetchSearchResults(query);
@@ -64,6 +64,7 @@ const controlCuisine = async function (cuisine) {
 
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
+  searchBarView.refreshEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
   sideBarView.sidebarEvents(controlRandomRecipe);
   sideBarView.categoryEvent(controlCategory);

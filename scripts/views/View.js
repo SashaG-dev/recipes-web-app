@@ -13,6 +13,7 @@ export default class View {
 
   _clearPage() {
     this._pElement.innerHTML = '';
+    document.querySelector('.home').innerHTML = '';
   }
 
   _createFinalMarkup() {
