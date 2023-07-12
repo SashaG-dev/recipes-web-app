@@ -12,7 +12,9 @@ class allRecipesView extends View {
     return `
     <div class="recipe-card">
             <div class="recipe-card__img-container">
-              <a href="#${recipe.id}" class="recipe-card__link">
+              <a href="#${
+                recipe.id
+              }" class="recipe-card__link" title="View the full recipe">
                 <img
                   src="${recipe.image}"
                   alt="${recipe.name}"
@@ -21,7 +23,9 @@ class allRecipesView extends View {
               </a>
             </div>
             <h3 class="heading-3 recipe-card__title">
-              <a href="#${recipe.id}" class="recipe-card__link">${
+              <a href="#${
+                recipe.id
+              }" class="recipe-card__link" title="View the full recipe">${
       recipe.name.split(' ').length >= 6
         ? `${recipe.name.split(' ').slice(0, 5).join(' ')}...`
         : recipe.name

@@ -8,7 +8,9 @@ class randomRecipeView extends View {
       const markup = `
       <div class="random-card">
       <div class="random-card__img-container">
-        <a href="#${recipe.id}" class="random-card__link">
+        <a href="#${
+          recipe.id
+        }" class="random-card__link" title="View the full recipe">
           <img
             src="${recipe.image}"
             alt="${recipe.name}"
@@ -19,7 +21,9 @@ class randomRecipeView extends View {
   
       <div class="random-card__info">
         <h2 class="heading-2 random-card__title">
-          <a href="#${recipe.id}" class="random-card__link">
+          <a href="#${
+            recipe.id
+          }" class="random-card__link" title="View the full recipe">
             ${
               recipe.name.split(' ').length >= 6
                 ? `${recipe.name.split(' ').slice(0, 5).join(' ')}...`

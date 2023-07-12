@@ -52,7 +52,7 @@ class recipeDisplayView {
   _clearClosedRecipes() {
     const url = window.location.href;
     const origin = window.location.origin;
-    if (url === origin + '/#home') this._clearRecipes();
+    if (url === origin || url.includes('que')) this._clearRecipes();
   }
 
   _focusRecipe() {
@@ -109,14 +109,13 @@ class recipeDisplayView {
       <div class="recipe__steps">
         <h2 class="heading-2 recipe__steps-heading mb-sm">Instructions:</h2>
         <div class="recipe__steps-link mb-sm">
-          <p>
-            Watch the YouTube tutorial
+          <p>  
             <a
               href="${this._data.video}"
               target="_blank"
               class="recipe__cta"
               title="Go to the YouTube tutorial"
-              >here!</a
+              >Visit Youtube to watch the tutorial! (opens new tab)</a
             >
           </p>
         </div>

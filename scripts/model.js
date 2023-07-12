@@ -36,7 +36,10 @@ export const fetchRecipe = async function (type, input) {
 export const fetchAllResults = async function (type, input) {
   try {
     const data = await getJSON(type, input);
-    if (!data.meals) throw new Error('No recipes found. Please try again!');
+    if (!data.meals)
+      throw new Error(
+        'Oops! No recipes were found. Please try a different search!'
+      );
     state.search.allResults = data.meals.map((meal) => {
       return {
         id: meal.idMeal,
