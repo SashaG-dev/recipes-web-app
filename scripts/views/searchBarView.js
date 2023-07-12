@@ -4,6 +4,7 @@ class searchBarView {
 
   showQuery() {
     const query = this._pElement.querySelector('.search__input').value;
+    sessionStorage.setItem('search', query);
     window.location.href = `${window.location.origin}/#que=${query}`;
     this._clearInput();
     this._hideSearch();
@@ -28,17 +29,20 @@ class searchBarView {
   }
 
   refreshEvent(handler) {
-    ['DOMContentLoaded', 'hashchange'].forEach((event) => {
-      window.addEventListener(event, (e) => {
-        if (window.location.href.includes('que')) {
-          handler(this.showRefreshQuery());
-        }
-      });
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.href.includes('que'))
+        handler(this.showRefreshQuery());
     });
   }
 
-  _saveSearch() {
-    window.addEventListener('load', (e) => {});
+  hashchangeEvent(handler) {
+    window.addEventListener('hashchange', (e) => {
+      const lastQuery = sessionStorage.getItem('search');
+      if (
+        window.location.href !== `${window.location.origin}/#que=${lastQuery}`
+      )
+        handler(this.showRefreshQuery());
+    });
   }
 
   _clearInput() {

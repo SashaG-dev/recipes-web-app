@@ -1,10 +1,14 @@
 import { API_URL } from './config.js';
 import { TIMEOUT } from './config.js';
 
-const timeout = function (time) {
+const timeout = async function (time) {
   return new Promise(function (_, reject) {
     setTimeout(() => {
-      reject(new Error(`Request failed! Please try again.`));
+      reject(
+        new Error(
+          'There was an error getting your results. Please check your connection and try again!'
+        )
+      );
     }, time * 1000);
   });
 };
@@ -26,13 +30,10 @@ export async function getJSON(type, input) {
       timeout(TIMEOUT),
     ]);
 
-    if (!results.ok)
-      throw new Error(
-        'There was an error loading results! Check your connection and try again.'
-      );
+    if (!results.ok) throw new Error();
     const data = await results.json();
     return data;
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 }

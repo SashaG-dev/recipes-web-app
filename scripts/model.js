@@ -11,10 +11,7 @@ export const state = {
 export const fetchRecipe = async function (type, input) {
   try {
     const data = await getJSON(type, input);
-    if (!data.meals)
-      throw new Error(
-        'There was an error getting your results. Please check your connection and try again!'
-      );
+    if (!data.meals) return;
     const recipe = data.meals[0];
     state.recipe = {
       id: recipe.idMeal,
@@ -29,7 +26,7 @@ export const fetchRecipe = async function (type, input) {
       measurements: getItems(recipe, 'strMeasure'),
     };
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 };
 
@@ -37,11 +34,10 @@ export const fetchAllResults = async function (type, input) {
   try {
     const data = await getJSON(type, input);
     if (!data.meals)
-      throw new Error(
-        'Oops! No recipes were found. Please try a different search!'
-      );
+      throw 'Oops! No recipes were found. Please try a different search!';
     state.search.allResults = data.meals.map((meal) => {
       return {
+        query: input,
         id: meal.idMeal,
         name: meal.strMeal,
         image: meal.strMealThumb,
@@ -51,7 +47,6 @@ export const fetchAllResults = async function (type, input) {
       };
     });
   } catch (err) {
-    console.error(err);
     throw err;
   }
 };

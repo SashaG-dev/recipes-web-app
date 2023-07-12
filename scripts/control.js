@@ -29,6 +29,7 @@ const controlSingleRecipe = async function () {
     recipeDisplayView.renderInfo(model.state.recipe);
   } catch (err) {
     console.error(err);
+    allRecipesView.renderError(err);
   }
 };
 
@@ -39,6 +40,7 @@ const controlRandomRecipe = async function () {
     randomRecipeView.renderInfo(model.state.search.allResults);
   } catch (err) {
     console.error(err);
+    allRecipesView.renderError(err);
   }
 };
 
@@ -65,6 +67,7 @@ const controlCuisine = async function (cuisine) {
 const init = function () {
   searchBarView.searchEvent(controlAllRecipes);
   searchBarView.refreshEvent(controlAllRecipes);
+  searchBarView.hashchangeEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
   sideBarView.sidebarEvents(controlRandomRecipe);
   sideBarView.categoryEvent(controlCategory);
