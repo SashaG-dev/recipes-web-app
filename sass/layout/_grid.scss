@@ -35,3 +35,9 @@
     display: none;
   }
 }
+
+.recipes__container {
+  &--hide {
+    padding: 0;
+  }
+}

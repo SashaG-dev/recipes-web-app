@@ -133,6 +133,12 @@
       width: 28rem;
     }
 
+    @include mixin.respond(screen-xl) {
+      position: absolute;
+      width: 40rem;
+      min-height: 100%;
+    }
+
     &--open {
       opacity: 1;
       visibility: visible;

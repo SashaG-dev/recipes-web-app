@@ -19,6 +19,13 @@
     }
   }
 
+  //~1920px
+  @if $breakpoint == screen-xl {
+    @media (min-width: 120.4em) {
+      @content;
+    }
+  }
+
   //~1330px
   @if $breakpoint == laptop-sm {
     @media (max-width: 83.3em) {

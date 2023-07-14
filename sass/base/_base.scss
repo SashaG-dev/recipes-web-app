@@ -16,15 +16,24 @@ html {
 
   @include mixin.respond(desktop) {
     font-size: 75%;
+    min-height: 100vh;
+    min-width: 100vw;
   }
 }
 
 body {
   font-size: 1.8rem;
   background-color: var.$primary-lightest;
+  position: relative;
 
   @include mixin.respond(desktop) {
     width: 160rem;
     margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  @include mixin.respond(desktop-lg) {
+    border-left: var.$border;
+    border-right: var.$border;
   }
 }

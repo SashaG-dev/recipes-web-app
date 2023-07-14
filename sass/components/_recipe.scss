@@ -43,6 +43,10 @@
     row-gap: 3.2rem;
   }
 
+  @include mixin.respond(desktop-lg) {
+    width: 160rem;
+  }
+
   &__main-container {
     justify-self: center;
     position: relative;

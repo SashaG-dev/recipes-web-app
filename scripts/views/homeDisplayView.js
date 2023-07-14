@@ -19,6 +19,9 @@ class homeDisplayView extends View {
   homePageEvent(handler) {
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.href === window.location.origin + '/') {
+        document
+          .querySelector('.recipes__container')
+          .classList.add('recipes__container--hide');
         handler();
       } else {
         document.querySelector('.home').innerHTML = '';
