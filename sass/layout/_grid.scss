@@ -39,5 +39,7 @@
 .recipes__container {
   &--hide {
     padding: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 }

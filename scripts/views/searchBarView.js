@@ -3,9 +3,10 @@ class searchBarView {
   _searchbar = document.querySelector('.search__label');
 
   showQuery() {
+    const location = window.location.origin + '/';
     const query = this._pElement.querySelector('.search__input').value;
     sessionStorage.setItem('search', query);
-    window.location.href = `${window.location.origin}/#que=${query}`;
+    query === '' ? '' : (window.location.href = `${location}#que=${query}`);
     this._clearInput();
     return query;
   }
@@ -37,17 +38,20 @@ class searchBarView {
 
   hashchangeEvent(handler) {
     window.addEventListener('hashchange', (e) => {
+      const location = window.location.href;
       const lastQueryUrl = `${
         window.location.origin
       }/#que=${sessionStorage.getItem('search')}`;
       const recipes = Array.from(document.querySelectorAll('.recipe-card'));
+      const displayedRecipe = document.querySelector('.recipe');
       if (
-        (window.location.href !== lastQueryUrl &&
-          window.location.href !== window.location.origin &&
+        (location !== lastQueryUrl &&
+          location !== window.location.origin &&
           recipes.length) ||
-        (window.location.href === lastQueryUrl &&
-          window.location.href !== window.location.origin &&
-          recipes.length)
+        (location === lastQueryUrl &&
+          location !== window.location.origin &&
+          recipes.length) ||
+        (location.includes('que') && displayedRecipe)
       ) {
         handler(this.showRefreshQuery());
       }

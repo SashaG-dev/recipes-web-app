@@ -5,6 +5,7 @@ class recipeDisplayView {
   renderInfo(data) {
     this._data = data;
     const markup = this._createFinalMarkup();
+    this._pElement.classList.remove('recipes__container--hide');
     this._pElement.insertAdjacentHTML('afterbegin', markup);
     this.renderLoading();
     this._recipe = this._pElement.querySelector('.recipe');
@@ -94,8 +95,8 @@ class recipeDisplayView {
 
   _createFinalMarkup() {
     const markup = `
-    <article class="recipe" data-id="${this._data.id}">
-    <button class="recipe__close"><i class="bi bi-x-lg"></i></button>
+    <article class="recipe" data-id="${this._data.id}" role="dialog">
+    <button class="recipe__close"><i class="bi bi-x-lg" aria-label="Close recipe details" title="X"></i></button>
     <div class="recipe__main-container">
       <div class="recipe__sticky">
         <div class="recipe__img-container">

@@ -8,6 +8,7 @@ export default class View {
     this._clearPage();
     this.renderHeading();
     const markup = this._createFinalMarkup();
+    this._pElement.classList.remove('recipes__container--hide');
     this._pElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -53,7 +54,7 @@ export default class View {
 
   renderError(message) {
     const markup = `
-    <div class="recipes__error">
+    <div class="recipes__error" role="alert">
             <p class="error-message">
               <i class="bi bi-x-octagon"></i> ${message}
             </p>
