@@ -5,7 +5,7 @@
   color: var.$black;
   background-color: var.$neutral;
   border: var.$border;
-  border-radius: 5px;
+  border-radius: var.$radius-sm;
   padding: 0.4rem 1.6rem;
   cursor: pointer;
   transition: var.$transitions;
@@ -25,49 +25,74 @@
   &:active {
     transform: translateY(-1.6px);
   }
-}
 
-.btn__surprise {
-  color: var.$black;
-  text-decoration: none;
-  display: block;
-  background-color: var.$primary;
-  font-size: 3rem;
-  border: 2px solid var.$neutral;
-  border-radius: 5px;
-  padding: 0.8rem 1.6rem;
-  cursor: pointer;
-  transition: var.$transitions;
-
-  @include mixin.respond(phone-land) {
-    font-size: 2.4rem;
-  }
-
-  &:hover,
-  &:focus {
-    transform: translateY(-0.3rem);
-    box-shadow: -0.42rem 0.42rem 0 var.$black;
-  }
-
-  &:active {
-    transform: translateY(-0.2rem);
-    box-shadow: -0.2rem 0.2rem 0 var.$black;
-  }
-}
-
-.btn__list {
-  color: var.$gray;
-  font-size: 1.8rem;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  transition: var.$transitions;
-
-  &:hover,
-  &:active {
+  &__surprise {
     color: var.$black;
-    border-bottom: var.$border;
+    text-decoration: none;
+    display: block;
+    background-color: var.$primary;
+    font-size: 3rem;
+    border: 2px solid var.$neutral;
+    border-radius: var.$radius-sm;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    transition: var.$transitions;
+
+    @include mixin.respond(phone-land) {
+      font-size: 2.4rem;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-0.3rem);
+      box-shadow: -0.42rem 0.42rem 0 var.$black;
+    }
+
+    &:active {
+      transform: translateY(-0.2rem);
+      box-shadow: -0.2rem 0.2rem 0 var.$black;
+    }
+  }
+
+  &__underlined {
+    color: var.$gray;
+    font-size: 1.8rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: var.$transitions;
+
+    &:hover,
+    &:active {
+      color: var.$black;
+      border-bottom: var.$border;
+    }
+  }
+
+  &__home-list {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      display: flex;
+      gap: 0.2rem;
+      border-bottom: none;
+
+      i {
+        transition: var.$transitions;
+      }
+    }
+
+    @include mixin.respond(phone-port) {
+      font-size: 1.6rem;
+    }
+
+    &:hover {
+      border-bottom: none;
+      i {
+        margin-left: 0.4rem;
+      }
+    }
   }
 }
 

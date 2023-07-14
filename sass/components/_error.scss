@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as var;
+
+.error-message {
+  font-size: 2rem;
+  background-color: var.$neutral;
+  padding: 0.8rem 1.6rem;
+  border: var.$border;
+  border-radius: var.$radius-lg;
+  cursor: default;
+  animation: showResults 0.2s;
+}

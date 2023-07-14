@@ -2,7 +2,7 @@
 @forward './base/typography';
 @forward './base/utilities';
 
-@forward './pages/home';
+@forward './pages/landing';
 
 @forward './layout/grid';
 @forward './layout/header';
@@ -14,3 +14,4 @@
 @forward './components/random-card';
 @forward './components/recipe';
 @forward './components/loading';
+@forward './components/error';

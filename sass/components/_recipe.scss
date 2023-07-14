@@ -18,7 +18,8 @@
   transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
-  transition: all 1s;
+  transition: all 1s, grid-template-columns 0s, gap 0s, width 0s, column-gap 0s,
+    margin 0s;
 
   &--show {
     animation: showRecipe 1s;
@@ -39,6 +40,7 @@
     padding: 0.8rem;
     padding-top: 4.8rem;
     grid-template-columns: 1fr;
+    row-gap: 3.2rem;
   }
 
   &__main-container {

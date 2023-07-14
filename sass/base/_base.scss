@@ -22,4 +22,9 @@ html {
 body {
   font-size: 1.8rem;
   background-color: var.$primary-lightest;
+
+  @include mixin.respond(desktop) {
+    width: 160rem;
+    margin: 0 auto;
+  }
 }

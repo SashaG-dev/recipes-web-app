@@ -1,0 +1,57 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/animations';
+
+.home {
+  padding: 3.2rem 2.4rem;
+
+  @include mixin.respond(phone-port) {
+    padding: 3.2rem 1.6rem;
+  }
+
+  &--hide {
+    padding: 0;
+  }
+
+  &__list-text {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    margin-bottom: 2.4rem;
+
+    @include mixin.respond(phone-land) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__heading {
+    @include mixin.respond(phone-port) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__list {
+    position: relative;
+  }
+}
+
+.recipes {
+  padding: 1.6rem 2.4rem;
+
+  &__heading {
+    display: none;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.random-card__heading {
+  display: none;
+}
+
+.heading--show {
+  display: block;
+  animation: recipesHeading 1s;
+}

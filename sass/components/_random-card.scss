@@ -5,7 +5,7 @@
 .random-card {
   background-color: var.$neutral;
   border: var.$border;
-  border-radius: 10px;
+  border-radius: var.$radius-lg;
   max-width: 64rem;
   overflow: hidden;
   display: grid;
