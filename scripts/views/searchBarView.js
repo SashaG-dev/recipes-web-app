@@ -7,7 +7,6 @@ class searchBarView {
     sessionStorage.setItem('search', query);
     window.location.href = `${window.location.origin}/#que=${query}`;
     this._clearInput();
-    this._hideSearch();
     return query;
   }
 
@@ -24,6 +23,7 @@ class searchBarView {
     this.hideMobileSearch();
     this._pElement.addEventListener('submit', (e) => {
       e.preventDefault();
+      this._hideSearch();
       handler(this.showQuery());
     });
   }
@@ -37,11 +37,20 @@ class searchBarView {
 
   hashchangeEvent(handler) {
     window.addEventListener('hashchange', (e) => {
-      const lastQuery = sessionStorage.getItem('search');
+      const lastQueryUrl = `${
+        window.location.origin
+      }/#que=${sessionStorage.getItem('search')}`;
+      const recipes = Array.from(document.querySelectorAll('.recipe-card'));
       if (
-        window.location.href !== `${window.location.origin}/#que=${lastQuery}`
-      )
+        (window.location.href !== lastQueryUrl &&
+          window.location.href !== window.location.origin &&
+          recipes.length) ||
+        (window.location.href === lastQueryUrl &&
+          window.location.href !== window.location.origin &&
+          recipes.length)
+      ) {
         handler(this.showRefreshQuery());
+      }
     });
   }
 
@@ -63,7 +72,7 @@ class searchBarView {
           .closest('.form-container')
           .querySelector('.search__label');
         searchbar.classList.add('show-search');
-        setTimeout(() => searchbar.focus(), 10);
+        setTimeout(() => searchbar.focus(), 20);
       }
     );
   }
@@ -71,10 +80,9 @@ class searchBarView {
   hideMobileSearch() {
     this._pElement
       .querySelector('.search__btn-mobile--close')
-      .addEventListener('click', function (e) {
+      .addEventListener('click', (e) => {
         e.preventDefault();
-        const searchbar = e.target.closest('.search__label');
-        searchbar.classList.remove('show-search');
+        this._hideSearch();
       });
   }
 }

@@ -6,6 +6,10 @@ export const state = {
   search: {
     allResults: [],
   },
+  home: {
+    category: 'Dessert',
+    cuisine: 'Italian',
+  },
 };
 
 export const fetchRecipe = async function (type, input) {
@@ -63,10 +67,10 @@ export const fetchRandomRecipe = async function () {
   return fetchAllResults('random.php', '');
 };
 
-export const fetchCategory = async function (category) {
+export const categoryFetch = async function (category) {
   return fetchAllResults('filter.php?c=', category);
 };
 
-export const fetchCuisine = async function (cuisine) {
+export const cuisineFetch = async function (cuisine) {
   return fetchAllResults('filter.php?a=', cuisine);
 };

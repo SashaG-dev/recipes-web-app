@@ -14,6 +14,7 @@ export default class View {
   _clearPage() {
     this._pElement.innerHTML = '';
     document.querySelector('.home').innerHTML = '';
+    document.querySelector('.home').classList.add('home--hide');
   }
 
   _createFinalMarkup() {

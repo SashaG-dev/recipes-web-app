@@ -1,6 +1,68 @@
 class sideBarView {
   _pElement = document.querySelector('.header');
 
+  sidebarEvents(handler) {
+    this._pElement.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn__surprise')) {
+        e.preventDefault();
+        this.handleSideBar('remove');
+        handler();
+      }
+    });
+    this.toggleLists();
+    this.toggleBar();
+    this.escapeSideBar();
+  }
+
+  categoryEvent(handler) {
+    this.listEvent(handler, 'category');
+  }
+
+  cuisineEvent(handler) {
+    this.listEvent(handler, 'cuisine');
+  }
+
+  refreshEvent(handler) {
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.href.includes('cat'))
+        handler(this.showListRefresh('category'), 'category');
+      else if (window.location.href.includes('cui'))
+        handler(this.showListRefresh('cuisine'), 'cuisine');
+    });
+  }
+
+  hashchangeEvent(handler) {
+    window.addEventListener('hashchange', (e) => {
+      const home = window.location.origin;
+      const recipes = Array.from(document.querySelectorAll('.recipe-card'));
+      if (window.location.href.includes('cat') && recipes.length)
+        handler(this.showListRefresh('category'), 'category');
+      else if (window.location.href.includes('cui') && recipes.length)
+        handler(this.showListRefresh('cuisine'), 'cuisine');
+    });
+  }
+
+  listEvent(handler, type) {
+    this._pElement.addEventListener('click', (e) => {
+      if (e.target.classList.contains(`list-${type}`)) {
+        e.preventDefault();
+        const item = e.target.dataset[type];
+        window.location.href = `${window.location.origin}/#${type}=${item}`;
+        this.handleSideBar('remove');
+        this.handleLists('remove');
+        handler(item, type);
+      }
+    });
+  }
+
+  showListRefresh(type) {
+    if (window.location.href.includes(`/#${type}=`)) {
+      const url = window.location.origin + `/#${type}=`;
+      const item = window.location.href.replace(url, '');
+      return item;
+    }
+  }
+
   toggleBar() {
     this._pElement.addEventListener('click', (e) => {
       if (
@@ -21,43 +83,6 @@ class sideBarView {
         button.classList.contains('sidebar__btn--active')
       ) {
         this.handleSideBar('remove');
-      }
-    });
-  }
-
-  sidebarEvents(handler) {
-    this._pElement.addEventListener('click', (e) => {
-      if (e.target.classList.contains('btn__surprise')) {
-        e.preventDefault();
-        this.handleSideBar('remove');
-        handler();
-      }
-    });
-    this.toggleLists();
-    this.toggleBar();
-    this.escapeSideBar();
-  }
-
-  categoryEvent(handler) {
-    this._pElement.addEventListener('click', (e) => {
-      if (e.target.classList.contains('list-category')) {
-        e.preventDefault();
-        const category = e.target.dataset.category;
-        this.handleSideBar('remove');
-        this.handleLists('remove');
-        handler(category);
-      }
-    });
-  }
-
-  cuisineEvent(handler) {
-    this._pElement.addEventListener('click', (e) => {
-      if (e.target.classList.contains('list-cuisine')) {
-        e.preventDefault();
-        const cuisine = e.target.dataset.cuisine;
-        this.handleSideBar('remove');
-        this.handleLists('remove');
-        handler(cuisine);
       }
     });
   }

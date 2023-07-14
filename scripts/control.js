@@ -7,6 +7,18 @@ import recipeDisplayView from './views/recipeDisplayView.js';
 import sideBarView from './views/sideBarView.js';
 import randomRecipeView from './views/randomRecipeView.js';
 import listRecipesView from './views/listRecipesView.js';
+import homeDisplayView from './views/homeDisplayView.js';
+
+const controlHome = async function () {
+  try {
+    await model.categoryFetch(model.state.home.category);
+    homeDisplayView.renderCategory(model.state.search.allResults);
+    await model.cuisineFetch(model.state.home.cuisine);
+    homeDisplayView.renderCuisine(model.state.search.allResults);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 const controlAllRecipes = async function (search) {
   try {
@@ -44,20 +56,10 @@ const controlRandomRecipe = async function () {
   }
 };
 
-const controlCategory = async function (category) {
+const controlLists = async function (item, type) {
   try {
     allRecipesView.renderLoading();
-    await model.fetchCategory(category);
-    listRecipesView.renderInfo(model.state.search.allResults);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const controlCuisine = async function (cuisine) {
-  try {
-    allRecipesView.renderLoading();
-    await model.fetchCuisine(cuisine);
+    await model[`${type}Fetch`](item);
     listRecipesView.renderInfo(model.state.search.allResults);
   } catch (err) {
     console.error(err);
@@ -69,9 +71,14 @@ const init = function () {
   searchBarView.refreshEvent(controlAllRecipes);
   searchBarView.hashchangeEvent(controlAllRecipes);
   recipeDisplayView.recipeDisplayEvent(controlSingleRecipe);
+  recipeDisplayView.reshowRecipeEvent(controlSingleRecipe);
   sideBarView.sidebarEvents(controlRandomRecipe);
-  sideBarView.categoryEvent(controlCategory);
-  sideBarView.cuisineEvent(controlCuisine);
+  sideBarView.categoryEvent(controlLists);
+  sideBarView.cuisineEvent(controlLists);
+  sideBarView.refreshEvent(controlLists);
+  sideBarView.hashchangeEvent(controlLists);
+  homeDisplayView.showPage();
+  homeDisplayView.homePageEvent(controlHome);
 };
 
 init();

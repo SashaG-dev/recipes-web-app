@@ -15,7 +15,11 @@ class recipeDisplayView {
 
   showId() {
     const location = window.location.href;
-    if (location.includes('#') && !location.slice(-5).includes('#')) {
+    if (
+      location.includes('#') &&
+      !location.slice(-5).includes('#') &&
+      !location.includes('c')
+    ) {
       const id = location.slice(-5);
       return id;
     }
@@ -30,6 +34,19 @@ class recipeDisplayView {
         } else this._clearRecipes();
       })
     );
+  }
+
+  reshowRecipeEvent(handler) {
+    const recipes = Array.from(document.querySelectorAll('.recipe'));
+    window.addEventListener('click', (e) => {
+      if (
+        (e.target.classList.contains('recipe-card__link') ||
+          e.target.classList.contains('recipe-card__img')) &&
+        !recipes.length
+      ) {
+        handler();
+      } else this._clearRecipes();
+    });
   }
 
   _clearRecipes() {
@@ -51,7 +68,7 @@ class recipeDisplayView {
 
   _clearClosedRecipes() {
     const url = window.location.href;
-    const origin = window.location.origin;
+    const origin = window.location.origin + '/';
     if (url === origin || url.includes('que')) this._clearRecipes();
   }
 
