@@ -39,7 +39,7 @@ CRAVIN' was created with HTML5, SASS/SCSS, and Vanilla JavaScript, with all reci
 
 ## Getting Started
 
-1. Head to the [CRAVIN' website (opens new tab)](https://cravin-web-app.netlify.app/). It's live!
+1. Head to the [CRAVIN' website](https://cravin-web-app.netlify.app/). It's live!
 2. Find a new recipe by:
    - Selecting a featured recipe in the home section.
    - Entering a keyword in the to search bar (e.g. 'cake', 'pie', etc.)
