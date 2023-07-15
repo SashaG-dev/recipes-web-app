@@ -50,6 +50,8 @@ class recipeDisplayView {
     const recipes = Array.from(document.querySelectorAll('.recipe'));
     const overlays = Array.from(document.querySelectorAll('.loading-overlay'));
     document.querySelector('body').classList.remove('recipe-visible');
+    this._pElement.classList.remove('recipe-visible');
+    document.querySelector('.recipes').classList.remove('recipe-visible');
     recipes.forEach((r) => r.classList.remove('recipe--show'));
     setTimeout(() => recipes.forEach((r) => r.remove()), 500);
     overlays.forEach((o) => o.remove());
@@ -73,7 +75,9 @@ class recipeDisplayView {
     this._recipe.classList.add('recipe--show');
     this._recipe.setAttribute('tabindex', '0');
     this._recipe.focus();
-    this._pElement.closest('body').classList.add('recipe-visible');
+    this._pElement.classList.add('recipe-visible');
+    document.querySelector('body').classList.add('recipe-visible');
+    document.querySelector('.recipes').classList.add('recipe-visible');
   }
 
   _closeRecipe() {

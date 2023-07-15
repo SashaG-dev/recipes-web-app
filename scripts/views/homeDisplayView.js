@@ -63,7 +63,7 @@ class homeDisplayView extends View {
               </a>
             </div>
             <h3 class="heading-3 recipe-card__title">
-              <a href="#${
+              <a href="#recipe=${
                 recipe.id
               }" title="View the full recipe" class="recipe-card__link">${
       recipe.name.split(' ').length >= 6
