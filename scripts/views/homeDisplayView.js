@@ -17,6 +17,7 @@ class homeDisplayView extends View {
   }
 
   homePageEvent(handler) {
+    this.showPage();
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.href === window.location.origin + '/') {
         document

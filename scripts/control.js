@@ -77,7 +77,6 @@ const init = function () {
   sideBarView.cuisineEvent(controlLists);
   sideBarView.refreshEvent(controlLists);
   sideBarView.hashchangeEvent(controlLists);
-  homeDisplayView.showPage();
   homeDisplayView.homePageEvent(controlHome);
 };
 

@@ -12,7 +12,7 @@ class allRecipesView extends View {
     return `
     <div class="recipe-card">
             <div class="recipe-card__img-container">
-              <a href="#${
+              <a href="#recipe=${
                 recipe.id
               }" class="recipe-card__link" title="View the full recipe">
                 <img

@@ -16,11 +16,7 @@ class recipeDisplayView {
 
   showId() {
     const location = window.location.href;
-    if (
-      location.includes('#') &&
-      !location.slice(-5).includes('#') &&
-      !location.includes('c')
-    ) {
+    if (location.includes('rec')) {
       const id = location.slice(-5);
       return id;
     }

@@ -8,7 +8,7 @@ class randomRecipeView extends View {
       const markup = `
       <div class="random-card">
       <div class="random-card__img-container">
-        <a href="#${
+        <a href="#recipe=${
           recipe.id
         }" class="random-card__link" title="View the full recipe">
           <img
