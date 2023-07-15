@@ -62,6 +62,7 @@ While these bugs are currently being worked on, there's also some upcoming featu
   - Bookmark favorite recipes and view them in the user sidebar.
   - Create personal recipes and save them for later.
 - A 'Load More' button so that searches that return more than 10 recipes only loads the first 10, then the next 10 on click, and so on.
+- Users who aren't logged in can bookmark up to 5 recipes (which will be saved in local storage).
 
 ## More Information
 
