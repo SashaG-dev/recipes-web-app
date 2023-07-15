@@ -37,9 +37,16 @@
 }
 
 .recipes__container {
+  position: relative;
+
   &--hide {
     padding: 0;
     opacity: 0;
     visibility: hidden;
   }
+}
+
+.recipes__container.recipe-visible {
+  margin: 0;
+  padding: 0;
 }

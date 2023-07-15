@@ -2,9 +2,8 @@
 @use '../abstracts/mixins' as mixin;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
   padding: 1.6rem 3.2rem;
   background-color: var.$primary-lightest;
   border-bottom: var.$border;
@@ -12,6 +11,12 @@
   top: 0;
   left: 0;
   z-index: 120;
+
+  @include mixin.respond(tab-port) {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.6rem;
+  }
 
   @include mixin.respond(tab-sm-port) {
     padding: 0.8rem 1.6rem;
@@ -22,14 +27,13 @@
     gap: 2.4rem;
     align-items: center;
 
-    &:first-of-type {
-      @include mixin.respond(phone-land) {
-        margin-right: auto;
-      }
+    &:last-of-type {
+      justify-self: end;
+      gap: 1.6rem;
     }
 
     @include mixin.respond(tab-sm) {
-      gap: 1.6rem;
+      gap: 1.4rem;
     }
 
     @include mixin.respond(tab-sm-port) {

@@ -26,6 +26,13 @@
     transform: translateY(-1.6px);
   }
 
+  &__join,
+  &__sign-in {
+    @include mixin.respond(tab-sm) {
+      font-size: 1.6rem;
+    }
+  }
+
   &__surprise {
     color: var.$black;
     text-decoration: none;
